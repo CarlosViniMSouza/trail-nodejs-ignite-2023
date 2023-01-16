@@ -1,4 +1,4 @@
 git add .
-git commit -m "Prox. Aula: Rotas de criação e listagem (Métodos HTTP)"
+git commit -m "Prox. Aula: Conhecendo HTTP status codes"
 git push
 git status
