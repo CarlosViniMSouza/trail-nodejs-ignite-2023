@@ -19,9 +19,11 @@ const server = http.createServer((req, res) => {
             name: 'John Doe',
             email: 'johndoe@email.com'
         });
+
+        return res.writeHead(201).end();
     }
 
-    return res.end("Hello User !!");
+    return res.writeHead(404).end("Route Not Found");
 });
 
 server.listen(port);

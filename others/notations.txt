@@ -1,23 +1,40 @@
-/*
-    1. Infos sobre métodos HTTP:
 
-        1.1. GET -> Pesquisar um recurso no servidor
+1. Infos sobre métodos HTTP:
 
-        1.2. POST -> Criar um recurso no servidor
-                
-        1.3. PUT -> Atualizar um recurso no servidor
+    1.1. GET -> Pesquisar um recurso no servidor
+
+    1.2. POST -> Criar um recurso no servidor
+        
+    1.3. PUT -> Atualizar um recurso no servidor
         (Exemplo: atualizar nome, e-mail, senha, avatar, etc)
 
-        1.4. PATCH -> Atualizar um recurso específico do recurso no servidor
+    1.4. PATCH -> Atualizar um recurso específico do recurso no servidor
         (Exemplo: Aceitar notificações)
 
-        1.5. EXCLUIR -> Excluir um recurso no servidor
-
-    2. Stateful & Steteless:
-
-        2.1. Stateful -> usar memória para armazenar dados
-
-        2.2 Stateless -> em vez de usar memória, use arquivos/banco de dados/dispositivos externos/etc para armazenar dados
+    1.5. EXCLUIR -> Excluir um recurso no servidor
     
-    3. HEADERS (Request/Response) -> Metadados
-*/
+    ---
+
+2. Stateful & Steteless:
+
+    2.1. Stateful -> usar memória para armazenar dados
+
+    2.2 Stateless -> em vez de usar memória, use arquivos/banco de dados/dispositivos externos/etc para armazenar dados
+
+    ---
+
+3. HEADERS (Request/Response) -> Metadados
+
+    ---
+
+4. HTTP Status Code -> indicam se uma solicitação HTTP foi concluída com êxito.
+
+    4.1. Respostas de Informação       (100 – 199)
+    4.2. Respostas de Sucessp          (200 – 299)
+    4.3. Mensagens de Redurecionamento (300 – 399)
+    4.4. Respostas de Erro no Cliente  (400 – 499)
+    4.5. Respostas de Erro no Servidor (500 – 599)
+
+    Link: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+    ---
