@@ -1,4 +1,4 @@
 git add .
-git commit -m "Prox. Aula: Stream de escrita e transformação"
+git commit -m "Prox. Aula: Aplicando Streams no módulo HTTP"
 git push
 git status
