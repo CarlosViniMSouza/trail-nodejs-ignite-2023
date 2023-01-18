@@ -7,7 +7,7 @@ class TestStream extends Readable {
         const i = this.index++;
 
         setTimeout(() => {
-            if (i > 100) {
+            if (i > 6) {
                 this.push(null);
             } else {
                 const buf = Buffer.from(String(i));
@@ -21,4 +21,9 @@ class TestStream extends Readable {
 fetch('http://localhost:3001', {
     method: 'POST',
     body: new TestStream(),
+    duplex: 'half',
+}).then(res => {
+    return res.text()
+}).then(data => {
+  console.log(data)
 });

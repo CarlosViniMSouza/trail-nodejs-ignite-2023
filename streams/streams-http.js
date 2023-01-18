@@ -11,12 +11,23 @@ class InvertNumber extends Transform {
     }
 }
 
-const server = http.createServer((req, res) => {
-    console.log('Server started!');
+const server = http.createServer(async (req, res) => {
+    const buffers = [];
+
+    for await (const chunk of req) {
+        buffers.push(chunk);
+    }
+
+    const bodyTotal = Buffer.concat(buffers).toString();
+
+    console.log(bodyTotal);
+
+    return res.end(bodyTotal);
     
-    return req
+    /* return req
         .pipe(new InvertNumber())
         .pipe(res);
+    */
 });
 
 server.listen(3001);
