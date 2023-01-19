@@ -23,11 +23,6 @@ const server = http.createServer(async (req, res) => {
     console.log(bodyTotal);
 
     return res.end(bodyTotal);
-    
-    /* return req
-        .pipe(new InvertNumber())
-        .pipe(res);
-    */
 });
 
 server.listen(3001);
