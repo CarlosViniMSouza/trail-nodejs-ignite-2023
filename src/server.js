@@ -1,44 +1,32 @@
 import http from 'node:http';
+import { Database } from './db.js';
+import { convertToJSON } from './middlewares/convertToJSON.js';
 
 const port = 3000;
 
-const users = [];
+const db = new Database();
 
 const server = http.createServer(async (req, res) => {
     const {method, url} = req;
 
-    const buffers = [];
-
-    for await (const chunk of req) {
-        buffers.push(chunk);
-    }
-
-    try {
-        req.body = JSON.parse(Buffer.concat(buffers).toString());
-    } catch {
-        // At class: 
-        req.body = null;
-
-        // My code:
-        // new Error(`Invalid request: ${req.body}`);
-    }
-
-    console.log(req.body);
+    await convertToJSON(req, res);
 
     if (method === 'GET' && url === '/users') {
-        return res
-            .setHeader('Content-Type', 'application/json')
-            .end(JSON.stringify(users));
+        const users = db.select('users');
+
+        return res.end(JSON.stringify(users));
     }
 
     if (method === 'POST' && url === '/users') {
         const {name, email} = req.body;
 
-        users.push({
+        const user = {
             id: 0,
             name,
             email,
-        });
+        }
+
+        db.insert('users', user);
 
         return res.writeHead(201).end();
     }
