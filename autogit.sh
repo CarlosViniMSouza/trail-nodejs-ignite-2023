@@ -1,4 +1,4 @@
 git add .
-git commit -m "routes.js -> added"
+git commit -m "project -> done"
 git push
 git status
